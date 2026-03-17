@@ -72,6 +72,7 @@ mtools
 nano
 nbd
 ndisc6
+fastfetch
 nfs-utils
 nilfs-utils
 nmap
