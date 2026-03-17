@@ -1,0 +1,24 @@
+#!/bin/bash
+# ============================================================
+#  FWS Linux — fws-installer
+#  Script de lancement de Calamares
+# ============================================================
+
+# Vérifie que Calamares est installé
+if ! command -v calamares &>/dev/null; then
+    echo "ERREUR : calamares n'est pas installé."
+    exit 1
+fi
+
+# Vérifie qu'on tourne bien en live
+if [ ! -d /run/archiso ]; then
+    echo "ATTENTION : Ce script doit être lancé depuis le live FWS."
+fi
+
+# Lance Calamares avec les droits root
+# -D6 active les logs de debug (retirer en production)
+if [ "$EUID" -ne 0 ]; then
+    exec pkexec calamares "$@"
+else
+    exec calamares "$@"
+fi

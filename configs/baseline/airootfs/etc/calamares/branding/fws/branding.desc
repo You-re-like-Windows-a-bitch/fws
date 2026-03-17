@@ -1,0 +1,40 @@
+# ============================================================
+#  FWS Linux — branding.desc
+# ============================================================
+
+componentName: fws
+
+strings:
+  productName:           "FWS Linux"
+  shortProductName:      "FWS"
+  version:               "1.0"
+  shortVersion:          "1.0"
+  versionedName:         "FWS Linux 1.0"
+  shortVersionedName:    "FWS 1.0"
+  bootloaderEntryName:   "FWS Linux"
+  productUrl:            "https://fws-linux.org"
+  supportUrl:            "https://fws-linux.org/support"
+  releaseNotesUrl:       "https://fws-linux.org/release-notes"
+  donateUrl:             "https://fws-linux.org/donate"
+
+images:
+  productLogo:           "logo.png"
+  productIcon:           "logo.png"
+  productWelcome:        "logo.png"
+
+slideshow:               "slideshow.qml"
+slideshowAPI:            2
+
+style:
+  # Couleurs de la sidebar
+  sidebarBackground:     "#1a1a2e"
+  sidebarText:           "#e0e0e0"
+  sidebarTextHighlight:  "#00d4ff"
+  sidebarSelect:         "#16213e"
+
+  # Couleurs générales
+  backgroundColor:       "#0f3460"
+  highlightedTextColor:  "#ffffff"
+  genericTextColor:      "#e0e0e0"
+  errorTextColor:        "#ff6b6b"
+  warningTextColor:      "#ffa500"
