@@ -3,6 +3,7 @@
 # Empêcher Git Bash de traduire automatiquement les chemins (ce qui causait C:/Program Files/Git/...)
 export MSYS_NO_PATHCONV=1
 
+# Nom de ta distribution WSL (par défaut "Arch")
 DISTRO_NAME="Arch"
 
 echo -e "\e[36mLancement du processus de build dans WSL ($DISTRO_NAME) en tant que root...\e[0m"
