@@ -57,8 +57,10 @@
 
 **You-re-like-Windows-a-bitch**
 ![Follow](https://img.shields.io/github/followers/You-re-like-Windows-a-bitch?label=Follow%20Me&style=social)
+
 **BlackAngelTVdev**
 ![Follow](https://img.shields.io/github/followers/BlackAngelTVdev?label=Follow%20Me&style=social)
+
 **fkDeath**
 ![Follow](https://img.shields.io/github/followers/fkDeath?label=Follow%20Me&style=social)
 
