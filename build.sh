@@ -4,7 +4,7 @@
 export MSYS_NO_PATHCONV=1
 
 set -e
-trap 'echo -e "\e[31mErreur lors de l'exécution (build.sh).\e[0m"; exit 1' ERR
+trap 'echo -e "\e[31mErreur lors de l execution (build.sh).\e[0m"; exit 1' ERR
 
 # Nom de ta distribution WSL (par défaut "Arch")
 DISTRO_NAME="Arch"
@@ -30,7 +30,9 @@ WORK_DIR="$PWD"
 
 echo "==> Dossier de travail : $WORK_DIR"
 
-echo "==> Mise à jour et installation de archiso..."
+echo "==> Mise à jour des miroirs et installation de archiso..."
+pacman -Sy --noconfirm reflector || true
+reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist || true
 pacman -Sy --noconfirm archiso
 
 echo "==> Préparation de l'environnement de build (système de fichiers Linux natif)..."

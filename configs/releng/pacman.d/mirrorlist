@@ -1,0 +1,7 @@
+## Custom mirrorlist for FWS build
+## Generated to avoid stale/broken mirrors during ISO build.
+
+Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch
+Server = https://mirror.rit.edu/archlinux/$repo/os/$arch
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
+Server = https://mirror.univ-lille1.fr/archlinux/$repo/os/$arch
