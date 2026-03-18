@@ -1,4 +1,8 @@
-# Ignorer le dossier de sortie où l'ISO de FWS est générée
-/out/
-configs/baseline/airootfs/etc/systemd/system/multi-user.target.wants/¨
+out/
 local-repo/
+configs/baseline/airootfs/etc/systemd/system/multi-user.target.wants/
+configs/releng/airootfs/etc/systemd/system/multi-user.target.wants/
+configs/baseline/airootfs/usr/lib/
+configs/baseline/airootfs/usr/bin/
+configs/baseline/airootfs/usr/include/
+configs/baseline/airootfs/usr/share/calamares/branding/default/
