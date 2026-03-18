@@ -11,6 +11,7 @@ brltty
 broadcom-wl
 btrfs-progs
 calamares
+calamares-configs
 clonezilla
 cloud-init
 cryptsetup
@@ -95,6 +96,9 @@ ppp
 pptpclient
 pv
 qemu-guest-agent
+qt5-base
+qt5-svg
+qt6-base
 refind
 reflector
 rsync

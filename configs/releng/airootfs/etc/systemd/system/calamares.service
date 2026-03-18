@@ -1,0 +1,12 @@
+[Unit]
+Description=Calamares Installer
+After=display-manager.service
+Requires=display-manager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/calamares
+Restart=on-failure
+
+[Install]
+WantedBy=graphical.target
