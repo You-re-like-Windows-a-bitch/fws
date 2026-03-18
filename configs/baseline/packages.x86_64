@@ -11,7 +11,6 @@ brltty
 broadcom-wl
 btrfs-progs
 calamares
-calamares-configs
 clonezilla
 cloud-init
 cryptsetup
@@ -67,7 +66,6 @@ mdadm
 memtest86+
 memtest86+-efi
 mkinitcpio
-mkinitcpio-openswap
 mkinitcpio-archiso
 mkinitcpio-nfs-utils
 mmc-utils
@@ -82,6 +80,7 @@ nilfs-utils
 nmap
 ntfs-3g
 nvme-cli
+openbox
 open-iscsi
 open-vm-tools
 openconnect
@@ -121,6 +120,7 @@ testdisk
 tmux
 tpm2-tools
 tpm2-tss
+ttf-dejavu
 udftools
 usb_modeswitch
 usbmuxd
@@ -135,4 +135,7 @@ wvdial
 xdg-utils
 xfsprogs
 xl2tpd
+xorg-server
+xorg-xinit
+xorg-xrandr
 zsh
