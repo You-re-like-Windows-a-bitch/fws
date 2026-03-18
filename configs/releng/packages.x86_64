@@ -47,6 +47,7 @@ iw
 iwd
 jfsutils
 kitty-terminfo
+kpmcore
 ldns
 less
 lftp
@@ -86,6 +87,7 @@ open-iscsi
 open-vm-tools
 openconnect
 openpgp-card-tools
+openbox
 openssh
 openvpn
 partclone
@@ -96,6 +98,10 @@ ppp
 pptpclient
 pv
 qemu-guest-agent
+qt5-base
+qt5-svg
+qt5-xmlpatterns
+qt5-webengine
 refind
 reflector
 rsync
@@ -116,6 +122,7 @@ testdisk
 tmux
 tpm2-tools
 tpm2-tss
+ttf-dejavu
 udftools
 usb_modeswitch
 usbmuxd
@@ -130,4 +137,7 @@ wvdial
 xdg-utils
 xfsprogs
 xl2tpd
+xorg-server
+xorg-xinit
+xorg-xrandr
 zsh
