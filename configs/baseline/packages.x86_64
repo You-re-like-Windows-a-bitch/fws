@@ -139,3 +139,5 @@ xorg-server
 xorg-xinit
 xorg-xrandr
 zsh
+xorg-xsetroot
+xorg-xsetroot

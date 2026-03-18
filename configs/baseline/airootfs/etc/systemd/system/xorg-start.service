@@ -1,0 +1,14 @@
+[Unit]
+Description=Xorg Display Server
+After=systemd-logind.service
+Wants=systemd-logind.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/Xorg :0 vt1 -nolisten tcp
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

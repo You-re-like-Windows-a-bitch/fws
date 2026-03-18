@@ -35,19 +35,31 @@ pacman -Sy --noconfirm archiso
 echo "==> Préparation de l'environnement de build..."
 rm -rf /tmp/fws-build
 mkdir -p /tmp/fws-build/releng
-cp -ar "\$WORK_DIR/configs/releng/"* /tmp/fws-build/releng/
 
+# Copie configs/releng/ en base
+if [ -d "\$WORK_DIR/configs/releng" ]; then
+    cp -ar "\$WORK_DIR/configs/releng/"* /tmp/fws-build/releng/
+    echo "==> configs/releng/ copié"
+fi
+
+# Fusionne configs/baseline/ par dessus (priorité aux fichiers baseline)
+if [ -d "\$WORK_DIR/configs/baseline" ]; then
+    cp -ar "\$WORK_DIR/configs/baseline/"* /tmp/fws-build/releng/
+    echo "==> configs/baseline/ fusionné (prioritaire)"
+fi
+
+echo "==> Vérification des services systemd..."
+ls /tmp/fws-build/releng/airootfs/etc/systemd/system/ 2>/dev/null || echo "  (aucun service)"
+ls /tmp/fws-build/releng/airootfs/etc/systemd/system/multi-user.target.wants/ 2>/dev/null || echo "  (aucun symlink)"
+
+# Copie le repo local Calamares
 if ls "\$WORK_DIR/local-repo/"*.pkg.tar.zst &>/dev/null 2>&1; then
     echo "==> Copie du repo local Calamares..."
     mkdir -p /tmp/fws-build/local-repo
     cp -a "\$WORK_DIR/local-repo/"* /tmp/fws-build/local-repo/
 
-    echo "==> Injection du repo [fws-local] dans pacman.conf..."
-    # Supprime tout bloc fws-local existant (peu importe son format)
-    sed -i '/^\[fws-local\]/,/^\[/{ /^\[fws-local\]/d; /^SigLevel/d; /^Server/d }' \
-        /tmp/fws-build/releng/pacman.conf
-
-    # Réécrit proprement le bloc en tête du fichier
+    echo "==> Injection [fws-local] dans pacman.conf..."
+    sed -i '/^\[fws-local\]/,/^$/d' /tmp/fws-build/releng/pacman.conf
     PACMAN_TMP=\$(mktemp)
     printf '[fws-local]\nSigLevel = Optional TrustAll\nServer = file:///tmp/fws-build/local-repo\n\n' \
         > "\$PACMAN_TMP"
@@ -55,9 +67,9 @@ if ls "\$WORK_DIR/local-repo/"*.pkg.tar.zst &>/dev/null 2>&1; then
     mv "\$PACMAN_TMP" /tmp/fws-build/releng/pacman.conf
 
     echo "==> Vérification pacman.conf :"
-    head -6 /tmp/fws-build/releng/pacman.conf
+    head -5 /tmp/fws-build/releng/pacman.conf
 else
-    echo "==> Aucun repo local détecté (local-repo/ absent ou vide)."
+    echo "==> Aucun repo local détecté."
 fi
 
 echo "==> Correction des retours à la ligne Windows (dos2unix)..."
@@ -87,17 +99,28 @@ else
     echo "==> Préparation de l'environnement de build..."
     rm -rf /tmp/fws-build
     mkdir -p /tmp/fws-build/releng
-    cp -ar "$WORK_DIR/configs/releng/"* /tmp/fws-build/releng/
+
+    if [ -d "$WORK_DIR/configs/releng" ]; then
+        cp -ar "$WORK_DIR/configs/releng/"* /tmp/fws-build/releng/
+        echo "==> configs/releng/ copié"
+    fi
+
+    if [ -d "$WORK_DIR/configs/baseline" ]; then
+        cp -ar "$WORK_DIR/configs/baseline/"* /tmp/fws-build/releng/
+        echo "==> configs/baseline/ fusionné (prioritaire)"
+    fi
+
+    echo "==> Vérification des services systemd..."
+    ls /tmp/fws-build/releng/airootfs/etc/systemd/system/ 2>/dev/null || echo "  (aucun service)"
+    ls /tmp/fws-build/releng/airootfs/etc/systemd/system/multi-user.target.wants/ 2>/dev/null || echo "  (aucun symlink)"
 
     if ls "$WORK_DIR/local-repo/"*.pkg.tar.zst &>/dev/null 2>&1; then
         echo "==> Copie du repo local Calamares..."
         mkdir -p /tmp/fws-build/local-repo
         cp -a "$WORK_DIR/local-repo/"* /tmp/fws-build/local-repo/
 
-        echo "==> Injection du repo [fws-local] dans pacman.conf..."
-        sed -i '/^\[fws-local\]/,/^\[/{ /^\[fws-local\]/d; /^SigLevel/d; /^Server/d }' \
-            /tmp/fws-build/releng/pacman.conf
-
+        echo "==> Injection [fws-local] dans pacman.conf..."
+        sed -i '/^\[fws-local\]/,/^$/d' /tmp/fws-build/releng/pacman.conf
         PACMAN_TMP=$(mktemp)
         printf '[fws-local]\nSigLevel = Optional TrustAll\nServer = file:///tmp/fws-build/local-repo\n\n' \
             > "$PACMAN_TMP"
@@ -105,7 +128,7 @@ else
         mv "$PACMAN_TMP" /tmp/fws-build/releng/pacman.conf
 
         echo "==> Vérification pacman.conf :"
-        head -6 /tmp/fws-build/releng/pacman.conf
+        head -5 /tmp/fws-build/releng/pacman.conf
     else
         echo "==> Aucun repo local détecté."
     fi

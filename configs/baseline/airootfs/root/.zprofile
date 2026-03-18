@@ -1,4 +1,8 @@
-# Lance Calamares automatiquement sur tty1
+# Fallback si les services systemd n'ont pas démarré Calamares
 if [ "$(tty)" = "/dev/tty1" ] && [ -z "$DISPLAY" ]; then
-    exec xinit /root/.xinitrc -- :0 vt1
+    Xorg :0 vt1 &
+    sleep 2
+    DISPLAY=:0 openbox &
+    sleep 1
+    DISPLAY=:0 calamares
 fi

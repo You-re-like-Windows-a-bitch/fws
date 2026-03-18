@@ -1,0 +1,16 @@
+[Unit]
+Description=Calamares Installer
+After=xorg-start.service
+Requires=xorg-start.service
+
+[Service]
+Type=simple
+User=root
+Environment=DISPLAY=:0
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/calamares
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
