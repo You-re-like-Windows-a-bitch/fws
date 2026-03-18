@@ -1,3 +1,4 @@
 # Ignorer le dossier de sortie où l'ISO de FWS est générée
 /out/
-configs/baseline/airootfs/etc/systemd/system/multi-user.target.wants/
+configs/baseline/airootfs/etc/systemd/system/multi-user.target.wants/¨
+local-repo/
