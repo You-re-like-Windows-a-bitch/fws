@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.sh text eol=lf
+*.conf text eol=lf
+*.yaml text eol=lf
+*.x86_64 text eol=lf
+*.zprofile text eol=lf
+*.xinitrc text eol=lf
+*.db binary
+*.zst binary
+*.so binary
+*.gz binary

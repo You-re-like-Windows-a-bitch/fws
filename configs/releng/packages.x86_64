@@ -11,8 +11,6 @@ brltty
 broadcom-wl
 btrfs-progs
 calamares
-polkit
-polkit-gnome
 clonezilla
 cloud-init
 cryptsetup
@@ -68,7 +66,6 @@ mdadm
 memtest86+
 memtest86+-efi
 mkinitcpio
-mkinitcpio-openswap
 mkinitcpio-archiso
 mkinitcpio-nfs-utils
 mmc-utils
@@ -83,11 +80,11 @@ nilfs-utils
 nmap
 ntfs-3g
 nvme-cli
+openbox
 open-iscsi
 open-vm-tools
 openconnect
 openpgp-card-tools
-openbox
 openssh
 openvpn
 partclone
@@ -100,8 +97,7 @@ pv
 qemu-guest-agent
 qt5-base
 qt5-svg
-qt5-xmlpatterns
-qt5-webengine
+qt6-base
 refind
 reflector
 rsync
@@ -114,6 +110,8 @@ smartmontools
 sof-firmware
 squashfs-tools
 sudo
+polkit
+polkit-gnome
 syslinux
 systemd-resolvconf
 tcpdump
